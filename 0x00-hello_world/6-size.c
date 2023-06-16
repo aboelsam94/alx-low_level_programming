@@ -3,8 +3,8 @@
 /**
  * main - Entry point
  *
- * Description: a C program that prints the size of various types
- * 
+ * Description: a C program that prints the size of various types.
+ *
  * Return: Always 0 (Success)
 */
 
