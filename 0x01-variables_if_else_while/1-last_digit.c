@@ -5,7 +5,7 @@
 /**
  * main - Entry point
  *
- * Description:
+ * Description: print value of n
  *
  * Return: 0 (Success)
 */
@@ -16,7 +16,7 @@ int main(void)
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
-	digit = n % 100;
+	digit = n % 10;
 
 	if (digit > 5)
 	{
