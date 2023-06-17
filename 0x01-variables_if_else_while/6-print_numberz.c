@@ -1,4 +1,4 @@
-#include <stdio>
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -14,7 +14,7 @@ int main(void)
 
 	while (digit <= 9)
 	{
-		putchar(digit + 48);
+		putchar(digit + '0');
 		digit++;
 	}
 	putchar('\n');
