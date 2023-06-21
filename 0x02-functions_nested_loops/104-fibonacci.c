@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * numLength - returns the length of string
@@ -13,7 +12,7 @@ int numLength(int num)
 {
 	int length = 0;
 
-	if (!num)
+	if (num == 0)
 		return (1);
 
 	while (num)
@@ -55,7 +54,8 @@ int main(void)
 		sumo = f1o + f2o + (f1 + f2) / mx;
 		f1 = f2;
 		f1o = f2o;
-		f2 = sumo;
+		f2 = sum;
+		f2o = sumo;
 
 		if (count != 98)
 			printf(", ");
