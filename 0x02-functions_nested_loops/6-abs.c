@@ -6,13 +6,13 @@
  * @n: the integer that will be computed
  *
  * Description: computes absolute value
- *
- * Return: 0 (Success)
+ *i
+ * Return: n
 */
 
 int _abs(int n)
 {
 	if (n < 0)
 		n = (-1) * n;
-	return (0);
+	return (n);
 }
