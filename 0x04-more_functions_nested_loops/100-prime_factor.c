@@ -13,12 +13,12 @@ double _sqrt(double x)
 	float sqrt, tmp;
 
 	sqrt = x / 2;
-	temp = 0;
+	tmp = 0;
 
 	while (sqrt != tmp)
 	{
 		tmp = sqrt;
-		sqrrt = (x / tmp + tmp) / 2;
+		sqrt = (x / tmp + tmp) / 2;
 	}
 	return (sqrt);
 }
