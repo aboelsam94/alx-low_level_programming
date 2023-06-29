@@ -11,6 +11,7 @@
 char *rot13(char *s)
 {
 	int i;
+	int j;
 
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ROT13[] = "nopqrstuvwxyzabcsdefhijjklmNOPQRSTUVWXYZABCDEFGHIJKLM";
@@ -18,15 +19,17 @@ char *rot13(char *s)
 
 	while (*s)
 	{
-		for (i = 0; i <= 52; i++)
+		for (i = 0; s[i] != '\0'; i++)
 		{
-			if (*s == rot13[i])
+			for (j = 0; j < 52; j++)
 			{
-				*s = ROT13[i];
-				break;
+				if (s[i] == rot13[j])
+				{
+					s[i] = ROT13[j];
+					break;
+				}
 			}
 		}
-		s++;
 	}
 	return (ptr);
 }
