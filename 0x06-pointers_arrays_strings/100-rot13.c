@@ -26,10 +26,6 @@ char *rot13(char *s)
 				break;
 			}
 		}
-		if (j == 52)
-		{
-			continue;
-		}
 	}
 	return (s);
 }
