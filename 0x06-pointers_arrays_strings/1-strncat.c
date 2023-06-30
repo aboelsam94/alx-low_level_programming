@@ -5,23 +5,30 @@
  *
  * @dest: pinter to destination input
  * @src: pointer to source input
+ * @n: input value
  *
  * Return: @dest
 */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int c, i;
+	int i;
+	int j;
 
-	c = 0;
+	i = 0;
+	while (dest[i] != '\0')
+	{
+		i++;
+	}
 
-	while (dest[c])
-		c++;
-
-	for (i = 0; i < n && src[i] != '\0'; i++)
-		dest[c + i] = src[i];
-
-	dest[c + i] = '\0';
+	j = 0;
+	while (j < n && src[j] != '\0')
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
 
 	return (dest);
 }
