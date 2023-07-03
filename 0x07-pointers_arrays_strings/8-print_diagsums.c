@@ -13,8 +13,8 @@ void print_diagsums(int *a, int size)
 
 	for (x = 0; x < size; x++)
 	{
-		s1 += a[x];
-		s2 += a[size - x - 1];
+		s1 += a[x * size + 1];
+		s2 += a[x * size + (size - x - 1)];
 		a += size;
 	}
 	printf("%d, ", s1);
