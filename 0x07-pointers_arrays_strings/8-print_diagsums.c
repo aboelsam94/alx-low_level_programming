@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_diagsums - a function that prints the sum of the two
@@ -18,9 +19,9 @@ void print_diagsums(int *a, int size)
 	{
 		sum1 = sum1 + a[x * size + x];
 	}
-	for (x = 0; x < size; x++)
+	for (x = size - 1; x >= 0; x--)
 	{
-		sum2 += a[(size - 1 - x) * size + x];
+		sum2 += a[y * size + (size - y - 1)];
 	}
 	printf("%d, %d\n", sum1, sum2);
 }
