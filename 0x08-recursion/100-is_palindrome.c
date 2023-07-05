@@ -22,7 +22,7 @@ int last_index(char *s)
 /**
  * is_palindrome - check if string is a palindrome.
  * @s: string.
- * @Return: 0 or 1.
+ * Return: 0 or 1.
 */
 
 int is_palindrome(char *s)
