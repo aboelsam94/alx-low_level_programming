@@ -14,10 +14,10 @@ int wrdcnt(char *s)
 	{
 		if (s[x] == ' ')
 		{
-			if (s[i + 1] != ' ' && s[i + 1] != '\0')
+			if (s[x + 1] != ' ' && s[x + 1] != '\0')
 				n++;
 		}
-		else if (i == 0)
+		else if (x == 0)
 			n++;
 	}
 	n++;
