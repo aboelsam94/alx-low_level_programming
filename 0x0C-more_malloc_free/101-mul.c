@@ -107,7 +107,7 @@ int main(int argc, char const *argv[])
 		if (z[b])
 			a = 1;
 		if (a)
-			_putchar(r[c] + '0');
+			_putchar(z[c] + '0');
 		b++;
 	}
 	if (!a)
