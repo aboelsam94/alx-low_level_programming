@@ -16,7 +16,7 @@ int is_digit(char *s)
 	{
 		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		i++
+		i++;
 	}
 	return (1);
 }
