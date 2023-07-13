@@ -1,72 +1,54 @@
 #include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
-#include <ctype.h>
 
 /**
- * _is_zero - checks of any number is 0.
- * @argv: argument vector.
- * Return: void.
+ * is_digit - checks if string has non digit char.
+ * @s: string.
+ * Return: int.
 */
 
-void _is_zero(char *argv[])
-{
-	int i, isn1 = 1, isn2 = 1;
-
-	for (i = 0; argv[1][i]; i++)
-		if (argv[1][i] != '0')
-	{
-		isn1 = 0;
-		break;
-	}
-	for (i = 0; argv[2][i]; i++)
-		if (argv[2][i] != '0')
-		{
-			isn2 = 0;
-			break;
-		}
-	if (isn1 == 1 || isn2 == 1)
-	{
-		printf("0\n");
-		exit(0);
-	}
-}
-
-/**
- * _init_array - set memory to zero in a new array.
- * @ar: char array.
- * @lar: length of char array.
- * Return: pointer to array.
-*/
-
-char *_init_array(char *ar, int lar)
+int is_digit(char *s)
 {
 	int i = 0;
 
-	for (i = 0; i < lar; i++)
-		ar[i] = '0';
-	ar[lar] = '\0';
-	return (ar);
+	while (s[i])
+	{
+		if (s[i] < '0' || s[i] > '9')
+			return (0);
+		i++
+	}
+	return (1);
 }
 
 /**
- * _check_num - determines the length of num.
- * @argv: argument vector.
- * @n: row of the array.
- * Return: length of the number.
+ * _strlen - returns the length of a string.
+ * @s: string.
+ *
+ * Return: length of string.
 */
 
-int _check_num(char *argv[], int n)
+int _strlen(char *s)
 {
-	int ln;
+	int i = 0;
 
-	for (ln = 0; argv[n][ln]; ln++)
-		if (!isdigit(argv[n][ln]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	return (ln);
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+/**
+ * errors - handle any error for main.
+ *
+ * Return: void.
+*/
+
+void errors(void)
+{
+	printf("Error\n");
+	exit(98);
 }
 
 /**
@@ -78,44 +60,44 @@ int _check_num(char *argv[], int n)
 
 int main(int argc, char *argv[])
 {
-	int ln1, ln2, lnout, add, add1, i, j, k, x;
-	char *nout;
+	char *s1, *s2;
+	int len1, len2, len, i, carry, digit1, digit2, *result, a = 0;
 
-	if (argc != 3)
-		printf("Error\n"), exit(98);
-	ln1 = _check_num(argv, 1), ln2 = _check_num(argv, 2), _is_zero(argv);
-	lnout = ln1 + ln2;
-	nout = malloc(lnout + 1);
-	if (nout == NULL)
-		printf("Error\n"), exit(98);
-	nout = _init_array(nout, lnout);
-	k = lnout - 1, i = ln1 - 1, j = ln2 - 1, x = add1 = 0;
-	for (; k >= 0; k--, i--)
+	s1 = argv[1], s2 = argv[2];
+	if (argc != 3 || !is_digit(s1) || !is_digit(s2))
+		errors();
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	len = len1 + len2 + 1;
+	result = malloc(sizeof(int) * len);
+	if (!result)
+		return (1);
+	for (i = 0; i <= len1 + len2; i++)
+		result[1] = 0;
+	for (len1 = len1 - 1; len1 >= 0; len1--)
 	{
-		if (i < 0)
+		digit1 = s1[len1] - '0';
+		carry = 0;
+		for (len2 = _strlen(s2) - 1; len2 >= 0; len2--)
 		{
-			if (add1 > 0)
-
-				add = (nout[k] - '0') + add1;
-				if (add > 9)
-					nout[k - 1] = (add / 10) + '0';
-				nout[k] = (add % 10) + '0';
-
-			i = ln1 - 1, j--, add1 = 0, x++, k = lnout - (1 + x);
+			digit2 = s2[len2] - '0';
+			carry += result[len1 + len2 + 1] + (digit1 * digit2);
+			result[len1 + len2 + 1] = carry % 10;
+			carry /= 10;
 		}
-		if (j < 0)
-
-			if (nout[0] != '0')
-				break;
-			lnout--;
-			free(nout), nout = malloc(lnout + 1), nout = _init_array(nout, lnout);
-			k = lnout - 1, i = ln1 - 1, j = ln2 - 1, x = add1 = 0;
-
-		if (j >= 0)
-
-			add = ((argv[1][i] - '0') * (argv[2][j] - '0')) + (nout[k] - '0') + add1;
-			add1 = add / 10, nout[k] = (add % 10) + '0';
+		if (carry > 0)
+			result[len1 + len2 + 1] += carry;
 	}
-	printf("%s\n", nout);
+	for (i = 0; i < len - 1; i++)
+	{
+		if (result[i])
+			a = 1;
+		if (a)
+			_putchar(result[i] + '0');
+	}
+	if (!a)
+		_putchar('0');
+	_putchar('\n');
+	free(result);
 	return (0);
 }
