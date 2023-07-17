@@ -8,7 +8,7 @@
  * Return: length of str.
 */
 
-int _str(const char *str)
+int _strlen(const char *str)
 {
 	int length = 0;
 
@@ -23,7 +23,7 @@ int _str(const char *str)
  * @dest: copy of the string.
 */
 
-char _strcopy(char *dest, char *src)
+char *_strcopy(char *dest, char *src)
 {
 	int i;
 
@@ -44,7 +44,7 @@ char _strcopy(char *dest, char *src)
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t = *dog;
+	dog_t *dog;
 
 	if (!name || age < 0 || !owner)
 		return (NULL);
@@ -60,7 +60,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	dog->owner - malloc(sizeof(char) * (_strlen(owner) + 1));
+	dog->owner = malloc(sizeof(char) * (_strlen(owner) + 1));
 	if ((*dog).owner == NULL)
 	{
 		free(dog->name);
