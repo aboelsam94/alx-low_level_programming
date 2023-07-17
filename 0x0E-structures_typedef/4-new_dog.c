@@ -21,6 +21,8 @@ int _strlen(const char *str)
  * _strcopy - a func that returns @dest with a copy of string.
  * @src: the string to copy.
  * @dest: copy of the string.
+ *
+ * Return: char.
 */
 
 char *_strcopy(char *dest, char *src)
@@ -78,8 +80,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	_strcopy(dog->name, (const char *)name);
-	_strcopy(dog->owner, (const char *)owner);
+	_strcopy(dog->name, name);
+	_strcopy(dog->owner, owner);
 	dog->age = age;
 
 	return (dog);
