@@ -2,11 +2,11 @@
 #include <stdio.h>
 
 /**
- * print_name - prints a name.
- * @name: the string name.
- * @f: the printing pointer func.
+ * print_name - a function that prints a name.
+ * @name: string to add.
+ * @f: pointer to func.
  *
- * Return: ivoid.
+ * Return: void.
 */
 
 void print_name(char *name, void (*f)(char *))
