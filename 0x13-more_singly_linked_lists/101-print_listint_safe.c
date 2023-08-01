@@ -23,9 +23,9 @@ const listint_t **_rev(const listint_t **list, size_t size,
 		exit(98);
 	}
 
-	for (x = 0; i < size - 1; x++)
+	for (x = 0; x < size - 1; x++)
 	{
-		newList[x] = lists[x];
+		newList[x] = list[x];
 	}
 	newList[x] = new;
 	free(list);
@@ -51,7 +51,7 @@ size_t print_listint_safe(const listint_t *head)
 		{
 			if (head == list[x])
 			{
-				printf("-> [%p] %d\n", (void *)head, head->m);
+				printf("-> [%p] %d\n", (void *)head, head->n);
 				free(list);
 				return (num);
 			}
