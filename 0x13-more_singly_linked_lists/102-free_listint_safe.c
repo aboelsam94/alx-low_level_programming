@@ -7,7 +7,7 @@
  * Return: address of node where the loop start.
 */
 
-list_t *find_listint_loop(list_t *head)
+listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *p, *end;
 
@@ -67,7 +67,7 @@ size_t free_listint_safe(listint_t **h)
 			free((*h)->next);
 			loop = 0;
 		}
-		free(*h)
+		free(*h);
 	}
 	*h = NULL;
 	return (len);
