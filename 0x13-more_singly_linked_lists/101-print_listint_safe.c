@@ -15,7 +15,7 @@ const listint_t **_rev(const listint_t **list, size_t size,
 	const listint_t **newList;
 	size_t x;
 
-	newList = malloc(sizeof(listint_t *));
+	newList = malloc(size * sizeof(listint_t *));
 
 	if (newList == NULL)
 	{
